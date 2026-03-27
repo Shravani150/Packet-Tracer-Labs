@@ -13,38 +13,34 @@ To create VLANs on a switch and observe how communication is restricted between 
 
 ## Configuration
 
-VLAN Setup (Switch CLI)
-
+```
 enable
 configure terminal
 
 vlan 2
 name office
-exit
 
 vlan 3
 name home
-exit
+```
 
-interface Fa0/1
+```
+interface fastEthernet 0/1
 switchport mode access
 switchport access vlan 2
-exit
 
-interface Fa0/2
+interface fastEthernet 0/2
 switchport mode access
 switchport access vlan 2
-exit
 
-interface Fa0/3
+interface fastEthernet 0/3
 switchport mode access
 switchport access vlan 3
-exit
 
-interface Fa0/4
+interface fastEthernet 0/4
 switchport mode access
 switchport access vlan 3
-exit
+```
 
 ---
 
@@ -74,13 +70,13 @@ exit
 
 ## Things to Remember
 
-### 1. VLANs behave like separate switches within the same physical switch
-### 2. VLAN IDs typically start from 2 (VLAN 1 is default)
-### 3. Broadcast traffic is allowed only within the same VLAN
-### 4. ARP is a broadcast and is restricted within a VLAN
-### 5. Switch operations (learn, flood, forward) occur only inside a VLAN
-### 6. Communication between different VLANs fails due to isolation
-### 7. Inter-VLAN communication requires a Layer 3 device (Router or L3 Switch)
+1. VLANs behave like separate switches within the same physical switch
+2. VLAN IDs typically start from 2 (VLAN 1 is default)
+3. Broadcast traffic is allowed only within the same VLAN
+4. ARP is a broadcast and is restricted within a VLAN
+5. Switch operations (learn, flood, forward) occur only inside a VLAN
+6. Communication between different VLANs fails due to isolation
+7. Inter-VLAN communication requires a Layer 3 device (Router or L3 Switch)
 
 ---
 
